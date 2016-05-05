@@ -12,8 +12,8 @@
 	  -->
 	
 	<!-- 只扫描Controller -->
-	<context:component-scan base-package="com.jf.web" use-default-filters="false">
-		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	<context:component-scan base-package="com.jf">
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
 	</context:component-scan>
 	
 	<!-- 开启MVC的注解配置注入-->

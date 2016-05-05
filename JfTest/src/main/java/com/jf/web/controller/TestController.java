@@ -23,7 +23,7 @@ public class TestController {
 	}
 	
 	@RequestMapping(value = "test3")
-	@ResponseBody
+//	@ResponseBody
 	public String test3(@RequestParam int channel,@RequestParam int type,
 			final HttpServletRequest request) {
 		return "view";
