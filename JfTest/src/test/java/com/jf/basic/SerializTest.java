@@ -23,6 +23,7 @@ public class SerializTest {
 	public static void serializeUser() throws FileNotFoundException, IOException{
 		User u = new User();
 		u.setName("jf");
+		u.name = "OK";
 		ObjectOutputStream oo = new ObjectOutputStream(new FileOutputStream(new File("E:/utest.txt")));
 		oo.writeObject(u);
 		System.out.println("user对象序列化成功！");
@@ -53,14 +54,13 @@ public class SerializTest {
 /**
  * Serializable接口序列化
  * transient不能被序列化，static修饰的不序列化，static反序列化出来的是jvm中的值
- * static并非不序列化，同样进行序列化，但是反序列化的时候取的值是当前jvm的值
  * @author jiafengma
  *
  */
 class User implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private String name;
+	public static String name;
 	private transient String sex="nan";
 	
 	public String getName() {
@@ -86,7 +86,7 @@ class User implements Serializable {
 
 /**
  * Externalizable接口序列化
- * static同样不序列化，读取的jvm中的值
+ * static并非不序列化，同样进行序列化，但是反序列化的时候取的值是当前jvm的值，读取的jvm中的值
  * @author jiafengma
  */
 class UserE implements Externalizable {
